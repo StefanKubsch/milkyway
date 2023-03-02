@@ -1,4 +1,4 @@
-# SizeCoding
+# milkyway
 
 This is my approach on a minimal 1K/2K/4K demoscene framework for use with GLSL shaders.
 
@@ -36,3 +36,5 @@ Further plans:
 - more work on code size (there are still some bytes buried, I think)
 
 Feel free to use the code!
+
+Why the name "milkyway"? In the 1990s, there was a german TV commercial for a candy bar called "MilkyWay. The tagline was "Der ist so leicht, der schwimmt sogar in Milch". Translated to english it is "It's so light, it even floats in milk". I find the name quite appropriate for a very minimal framework.
