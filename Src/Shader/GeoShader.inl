@@ -1,5 +1,6 @@
 const char* GeoSource =
 "#version 450 core\n"
+"precision mediump float;\n"
 
 "uniform float TimeElapsed;\n"
 "uniform float Width;\n"
