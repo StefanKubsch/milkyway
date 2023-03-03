@@ -28,7 +28,7 @@ MMTIME MMTime{ TIME_SAMPLES, 0 };
 
 void InitSynth()
 {
-	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)_4klang_render, AudioBuffer, 0, 0);
+	_4klang_render(AudioBuffer);
 	waveOutOpen(&WaveOut, WAVE_MAPPER, &WaveFMT, (DWORD_PTR)NULL, 0, CALLBACK_NULL);
 	waveOutPrepareHeader(WaveOut, &WaveHDR, sizeof(WaveHDR));
 	waveOutWrite(WaveOut, &WaveHDR, sizeof(WaveHDR));

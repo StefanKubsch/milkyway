@@ -48,7 +48,7 @@ __declspec(naked) void winmain()
 			// Bring everything to screen
 			glRects(-1, -1, 1, 1);
 			SwapBuffers(WindowHandle);
-		} while (!GetAsyncKeyState(VK_ESCAPE));
+		} while (!GetAsyncKeyState(VK_ESCAPE) && MMTime.u.sample < MAX_SAMPLES);
 	}
 
 	DeleteOpenGLContext();

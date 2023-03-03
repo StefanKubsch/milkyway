@@ -23,7 +23,6 @@ using GLchar = char;
 	OG(GLint,	glCreateProgram,			void) \
 	OG(GLuint,	glCreateShaderProgramv,		GLenum type, GLsizei count, const char** strings) \
 	OG(void,	glUniform1f,				GLint location, GLfloat v0) \
-	OG(void,	glUniform1i,				GLint location, GLint v0) \
 	OG(GLint,	glGetUniformLocation,		GLuint program, const GLchar* name) \
 	OG(void,	glUseProgram,				GLuint program)
 #define OG(Return, Name, ...) typedef Return WINAPI Name##proc(__VA_ARGS__); extern Name##proc* Name;
