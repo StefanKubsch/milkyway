@@ -16,8 +16,7 @@ void LoadGeoShader()
 
 void RenderGeoShader()
 {
-	static float TimeElapsed{};
-	TimeElapsed += 0.06F;
+	waveOutGetPosition(WaveOut, &MMTime, sizeof(MMTIME));
 	const GLint TimeElapsedPosition{ glGetUniformLocation(GeoShaderProgram, "TimeElapsed") };
-	glUniform1f(TimeElapsedPosition, TimeElapsed);
+	glUniform1f(TimeElapsedPosition, (float)(MMTime.u.sample));
 }

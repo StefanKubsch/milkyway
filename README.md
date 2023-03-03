@@ -20,12 +20,13 @@ What can this framework do for you?
 1) Create a fullscreen window and an OpenGL context
 2) Load all needed (and ONLY NEEDED!) OpenGL WGL extensions
 3) Load and compile GLSL shader code
-3) Implement some basic and often needed functions without the use of a standard library (right now: memset, memcpy)
-4) Run shaders
+4) 4klang synthesizer integrated, load & play songs (https://github.com/hzdgopher/4klang)
+5) Implement some basic and often needed functions without the use of a standard library (right now: memset, memcpy)
+6) Run everything together!
 
 Try it out!
 
-This repo contains a "milkyway.exe" file under "Release", less than 1.2kB (1.17kB or 1199 Bytes to be exact) in size. It will run on any Windows 10 or 11 machine with a proper graphics adapter and OpenGL drivers.
+This repo contains a "milkyway.exe" file under "Release", less than 4kB (3.1kB or 3182 Bytes to be exact) in size. It will run on any Windows 10 or 11 machine with a proper graphics adapter and OpenGL drivers.
 
 The original filesize is around 6kB, but due to the use of "crinkler" (https://github.com/runestubbe/Crinkler) we can reduce the size.
 
@@ -34,7 +35,6 @@ crinkler settings are defined in Project/Linker/Additional Options:
 
 Further plans:
 
-- implement music / softsynth
 - implement a tool for compressing shader code like Shader_Minifier (https://github.com/laurentlb/shader_minifier)
 - more work on code size (there are still some bytes buried, I think)
 

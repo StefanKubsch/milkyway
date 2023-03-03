@@ -20,10 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\OpenGLLoader.hpp">
+    <ClInclude Include="Src\OpenGL_Loader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Src\OpenGLScreen.hpp">
+    <ClInclude Include="Src\OpenGL_Screen.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Src\Memory.hpp">
@@ -31,6 +31,12 @@
     </ClInclude>
     <ClInclude Include="Src\GeoShader.hpp">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\4klang_Synth.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\4klang\4klang.h">
+      <Filter>Ressourcendateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,8 +12,9 @@
 
 // Include framework specific headers
 #include "Memory.hpp"
-#include "OpenGLLoader.hpp"
-#include "OpenGLScreen.hpp"
+#include "OpenGL_Loader.hpp"
+#include "OpenGL_Screen.hpp"
+#include "4klang_Synth.hpp"
 
 // Include content/demo/intro headers here
 #include "GeoShader.hpp"
@@ -30,6 +31,8 @@ __declspec(naked) void winmain()
 	{
 		InitScreen();
 		InitOpenGL();
+		InitSynth();
+
 		LoadGeoShader();
 
 		// Main loop

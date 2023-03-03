@@ -1,0 +1,31 @@
+#include "mmsystem.h"
+#include "mmreg.h"
+
+// Load 4klang-generated header file
+#include "4klang/4klang.h"
+
+SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
+HWAVEOUT WaveOut;
+
+WAVEFORMATEX waveFMT
+{
+	WAVE_FORMAT_PCM,
+	2,										// channels
+	SAMPLE_RATE,							// samples per sec
+	SAMPLE_RATE * sizeof(SAMPLE_TYPE) * 2,	// bytes per sec
+	sizeof(SAMPLE_TYPE) * 2,				// block alignment;
+	sizeof(SAMPLE_TYPE) * 8,				// bits per sample
+	0										// extension not needed
+};
+
+WAVEHDR waveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
+
+MMTIME MMTime{ TIME_SAMPLES, 0 };
+
+void InitSynth()
+{
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)_4klang_render, AudioBuffer, 0, 0);
+	waveOutOpen(&WaveOut, WAVE_MAPPER, &waveFMT, (DWORD_PTR)NULL, 0, CALLBACK_NULL);
+	waveOutPrepareHeader(WaveOut, &waveHDR, sizeof(waveHDR));
+	waveOutWrite(WaveOut, &waveHDR, sizeof(waveHDR));
+}

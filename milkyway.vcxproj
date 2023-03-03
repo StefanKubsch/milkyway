@@ -22,10 +22,12 @@
     <ClCompile Include="Src\milkyway.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\4klang\4klang.h" />
+    <ClInclude Include="Src\4klang_Synth.hpp" />
     <ClInclude Include="Src\GeoShader.hpp" />
     <ClInclude Include="Src\Memory.hpp" />
-    <ClInclude Include="Src\OpenGLLoader.hpp" />
-    <ClInclude Include="Src\OpenGLScreen.hpp" />
+    <ClInclude Include="Src\OpenGL_Loader.hpp" />
+    <ClInclude Include="Src\OpenGL_Screen.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Shader\GeoShader.inl" />
@@ -132,13 +134,18 @@
       <StringPooling>true</StringPooling>
       <StructMemberAlignment>1Byte</StructMemberAlignment>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <CallingConvention>FastCall</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalOptions>/GR- /EHa- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>winmain</EntryPointSymbol>
       <DataExecutionPrevention>false</DataExecutionPrevention>
-      <AdditionalOptions>/SAFESEH:NO /LTCG /CRINKLER /RANGE:opengl32 /UNSAFEIMPORT /TINYHEADER /TINYIMPORT</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/CRINKLER  /RANGE:opengl32/UNSAFEIMPORT /UNALIGNCODE</AdditionalOptions>
+      <AdditionalDependencies>opengl32.lib;winmm.lib;Src/4klang/4klang.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
