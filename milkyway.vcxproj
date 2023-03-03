@@ -137,7 +137,7 @@
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>winmain</EntryPointSymbol>
       <DataExecutionPrevention>false</DataExecutionPrevention>
-      <AdditionalOptions>/SAFESEH:NO /LTCG /CRINKLER /RANGE:opengl32 /UNSAFEIMPORT /TINYHEADER /TINYIMPORT </AdditionalOptions>
+      <AdditionalOptions>/SAFESEH:NO /LTCG /CRINKLER /RANGE:opengl32 /UNSAFEIMPORT /TINYHEADER /TINYIMPORT</AdditionalOptions>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
