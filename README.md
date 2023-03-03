@@ -26,12 +26,12 @@ What can this framework do for you?
 
 Try it out!
 
-This repo contains a "milkyway.exe" file under "Release", less than 4kB (3.1kB or 3182 Bytes to be exact) in size. It will run on any Windows 10 or 11 machine with a proper graphics adapter and OpenGL drivers.
+This repo contains a "milkyway.exe" file under "Release", less than 3kB (2.91kB or 2983 Bytes to be exact) in size. It will run on any Windows 10 or 11 machine with a proper graphics adapter and OpenGL drivers.
 
 The original filesize is around 6kB, but due to the use of "crinkler" (https://github.com/runestubbe/Crinkler) we can reduce the size.
 
 crinkler settings are defined in Project/Linker/Additional Options:
-/CRINKLER /RANGE:opengl32 /UNSAFEIMPORT /TINYHEADER /TINYIMPORT
+/CRINKLER /RANGE:opengl32 /UNSAFEIMPORT /UNALIGNCODE
 
 Further plans:
 

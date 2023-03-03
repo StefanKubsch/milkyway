@@ -7,25 +7,29 @@
 SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
 HWAVEOUT WaveOut;
 
-WAVEFORMATEX waveFMT
+WAVEFORMATEX WaveFMT
 {
-	WAVE_FORMAT_PCM,
-	2,										// channels
-	SAMPLE_RATE,							// samples per sec
-	SAMPLE_RATE * sizeof(SAMPLE_TYPE) * 2,	// bytes per sec
-	sizeof(SAMPLE_TYPE) * 2,				// block alignment;
-	sizeof(SAMPLE_TYPE) * 8,				// bits per sample
-	0										// extension not needed
+	#ifdef FLOAT_32BIT
+		WAVE_FORMAT_IEEE_FLOAT,
+	#else
+		WAVE_FORMAT_PCM,
+	#endif
+	2,											// channels
+	SAMPLE_RATE,								// samples per sec
+	SAMPLE_RATE * sizeof(SAMPLE_TYPE) * 2,		// bytes per sec
+	sizeof(SAMPLE_TYPE) * 2,					// block alignment;
+	sizeof(SAMPLE_TYPE) * 8,					// bits per sample
+	0											// extension not needed
 };
 
-WAVEHDR waveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
+WAVEHDR WaveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
 
 MMTIME MMTime{ TIME_SAMPLES, 0 };
 
 void InitSynth()
 {
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)_4klang_render, AudioBuffer, 0, 0);
-	waveOutOpen(&WaveOut, WAVE_MAPPER, &waveFMT, (DWORD_PTR)NULL, 0, CALLBACK_NULL);
-	waveOutPrepareHeader(WaveOut, &waveHDR, sizeof(waveHDR));
-	waveOutWrite(WaveOut, &waveHDR, sizeof(waveHDR));
+	waveOutOpen(&WaveOut, WAVE_MAPPER, &WaveFMT, (DWORD_PTR)NULL, 0, CALLBACK_NULL);
+	waveOutPrepareHeader(WaveOut, &WaveHDR, sizeof(WaveHDR));
+	waveOutWrite(WaveOut, &WaveHDR, sizeof(WaveHDR));
 }

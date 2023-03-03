@@ -143,7 +143,7 @@
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>winmain</EntryPointSymbol>
       <DataExecutionPrevention>false</DataExecutionPrevention>
-      <AdditionalOptions>/CRINKLER  /RANGE:opengl32/UNSAFEIMPORT /UNALIGNCODE</AdditionalOptions>
+      <AdditionalOptions>/CRINKLER  /RANGE:opengl32 /UNSAFEIMPORT /UNALIGNCODE</AdditionalOptions>
       <AdditionalDependencies>opengl32.lib;winmm.lib;Src/4klang/4klang.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
     </Link>

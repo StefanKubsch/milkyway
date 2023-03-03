@@ -29,7 +29,7 @@ const char* GeoSource =
 "void main()\n"
 "{\n"
 	"vec3 Direction = vec3((gl_FragCoord.xy - Resolution.xy * 0.5) / Resolution.x, 1.0);\n"
-	"vec3 Position = vec3(0.5, 0.8, (TimeElapsed / 44100.0F));\n"
+	"vec3 Position = vec3(0.5, 0.8, (TimeElapsed / 22050.0F));\n"
 	"vec3 Color;\n"
 
 	"for (int i = 0; i < 50; ++i)\n"
