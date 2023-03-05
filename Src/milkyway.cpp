@@ -31,9 +31,10 @@ __declspec(naked) void winmain()
 	{
 		InitScreen();
 		InitOpenGL();
-		InitSynth();
-
+		ClearScreen();
 		LoadGeoShader();
+		InitSynth();
+		PlaySynth();
 
 		// Main loop
 		do

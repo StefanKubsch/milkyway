@@ -31,5 +31,9 @@ void InitSynth()
 	_4klang_render(AudioBuffer);
 	waveOutOpen(&WaveOut, WAVE_MAPPER, &WaveFMT, (DWORD_PTR)NULL, 0, CALLBACK_NULL);
 	waveOutPrepareHeader(WaveOut, &WaveHDR, sizeof(WaveHDR));
+}
+
+void PlaySynth()
+{
 	waveOutWrite(WaveOut, &WaveHDR, sizeof(WaveHDR));
 }
