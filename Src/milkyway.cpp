@@ -34,7 +34,6 @@ __declspec(naked) void winmain()
 		ClearScreen();
 		LoadGeoShader();
 		InitSynth();
-		PlaySynth();
 
 		// Main loop
 		do

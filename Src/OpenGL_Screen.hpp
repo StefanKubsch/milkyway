@@ -10,6 +10,7 @@ void InitScreen()
 	DEVMODE ScreenSettings{ { 0 }, 0, 0, sizeof(DEVMODE), 0, DM_PELSWIDTH | DM_PELSHEIGHT | DM_BITSPERPEL, { 0 }, 0, 0, 0, 0, 0, { 0 }, 0, 32, ScreenWidth, ScreenHeight, { 0 }, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	ChangeDisplaySettings(&ScreenSettings, CDS_FULLSCREEN);
+	ShowCursor(0);
 
 	// Create OpenGL context
 	// https://www.khronos.org/opengl/wiki/Creating_an_OpenGL_Context_(WGL)
@@ -34,6 +35,6 @@ void DeleteOpenGLContext()
 void ClearScreen()
 {
 	glColor4f(0.0F, 0.0F, 0.0F, 0.0F);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	SwapBuffers(WindowHandle);
 }
