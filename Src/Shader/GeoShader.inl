@@ -1,41 +1,38 @@
 const char* GeoSource =
 "#version 450 core\n"
 
-"uniform float TimeElapsed;\n"
-"uniform float Width;\n"
-"uniform float Height;\n"
+"uniform float t;\n"
+"uniform float w;\n"
+"uniform float h;\n"
 
 "out vec4 outColor;\n"
 
-"vec3 Field(vec3 Pos)\n"
+"vec3 f(vec3 p)\n"
 "{\n"
-	"Pos *= 0.1;\n"
+	"p *= .1;\n"
 
 	"for (int i = 0; i < 5; ++i)\n"
 	"{\n"
-		"Pos = (Pos.yzx * mat3(0.8, 0.6, 0, -0.6, 0.8, 0.0, 0.0, 0.0, 1.0)) + vec3(0.123, 0.456, 0.789) * float(i);\n"
-		"Pos = (abs(fract(Pos) - 0.5)) * 2.0;\n"
+		"p = abs(fract((p.yzx * mat3(.8, .6, .0, -.6, .8, .0, .0, .0, 1.)) + vec3(.123, .456, .789) * float(i)) - .5) * 2.;\n"
 	"}\n"
 
-	"Pos *= Pos;\n"
-	"return sqrt(Pos + Pos.yzx) * 0.33;\n"
+	"p *= p;\n"
+	"return sqrt(p + p.yzx) * .33;\n"
 "}\n"
 
 "void main()\n"
 "{\n"
-	"vec2 Resolution = vec2(Width, Height);\n"
-	"vec3 Direction = vec3((gl_FragCoord.xy - Resolution.xy * 0.5) / Resolution.x, 1.0);\n"
-	"vec3 Position = vec3(0.5, 0.8, (TimeElapsed / 22050.0F));\n"
-	"vec3 Color;\n"
+	"vec2 r = vec2(w, h);\n"
+	"vec3 d = vec3((gl_FragCoord.xy - r.xy * .5) / r.x, 1.), p = vec3(.5, .8, t / 22050.), c;\n"
 
 	"for (int i = 0; i < 50; ++i)\n"
 	"{\n"
-		"vec3 f2 = Field(Position);\n"
-		"Position += Direction * min(min(f2.x, f2.y), f2.z);\n"
-		"Color += float(50 - i) / (f2 + 0.005);\n"
+		"vec3 f2 = f(p);\n"
+		"p += d * min(min(f2.x, f2.y), f2.z);\n"
+		"c += float(50 - i) / (f2 + .005);\n"
 	"}\n"
 
-	"Color = vec3(1.0 - 1.0 / (1.0 + Color * (-0.06 / 2500.0)));\n"
-	"Color *= Color;\n"
-	"outColor = vec4(Color.r * 6.0, 0.0, 0.0, 1.0);\n"
+	"c = vec3(1. - 1. / (1. + c * (-.06 / 2500.)));\n"
+	"c *= c;\n"
+	"outColor = vec4(c.r * 6., .0, .0, 1.);\n"
 "}";
