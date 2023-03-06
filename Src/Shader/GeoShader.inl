@@ -4,6 +4,7 @@ const char* GeoSource =
 "uniform float t;\n"
 "uniform float w;\n"
 "uniform float h;\n"
+"uniform float bd;\n"
 
 "out vec4 outColor;\n"
 
@@ -27,12 +28,13 @@ const char* GeoSource =
 
 	"for (int i = 0; i < 50; ++i)\n"
 	"{\n"
-		"vec3 f2 = f(p);\n"
+		"vec3 f2 = f(p + bd * .001);\n"
 		"p += d * min(min(f2.x, f2.y), f2.z);\n"
 		"c += float(50 - i) / (f2 + .005);\n"
 	"}\n"
 
 	"c = vec3(1. - 1. / (1. + c * (-.06 / 2500.)));\n"
 	"c *= c;\n"
-	"outColor = vec4(c.r * 6., .0, .0, 1.);\n"
+
+	"outColor = vec4(c.r * 6., .0, bd * .007, 1.);\n"
 "}";

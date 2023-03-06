@@ -8,7 +8,7 @@
 %define MAX_VOICES 1
 %define HLD 1
 %define BPM 120.000000
-%define MAX_PATTERNS 53
+%define MAX_PATTERNS 52
 %define PATTERN_SIZE_SHIFT 4
 %define PATTERN_SIZE (1 << PATTERN_SIZE_SHIFT)
 %define	MAX_TICKS (MAX_PATTERNS*PATTERN_SIZE)
@@ -17,8 +17,8 @@
 %define	MAX_SAMPLES	(SAMPLES_PER_TICK*MAX_TICKS)
 ;%define 	GO4K_USE_16BIT_OUTPUT
 ;%define 	GO4K_USE_GROOVE_PATTERN
-;%define 	GO4K_USE_ENVELOPE_RECORDINGS
-;%define 	GO4K_USE_NOTE_RECORDINGS
+%define 	GO4K_USE_ENVELOPE_RECORDINGS
+%define 	GO4K_USE_NOTE_RECORDINGS
 %define 	GO4K_CLIP_OUTPUT
 %define 	GO4K_USE_DST
 %define 	GO4K_USE_DLL
@@ -479,11 +479,11 @@ section .g4kmuc2 data align=1
 section .data
 %endif
 go4k_pattern_lists
-Instrument0List		db	1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 0, 0, 0, 0, 0, 
-Instrument1List		db	0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 7, 8, 7, 8, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-Instrument2List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 11, 0, 11, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-Instrument3List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-Instrument4List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 18, 19, 20, 19, 2, 21, 22, 17, 18, 19, 20, 19, 2, 21, 22, 17, 18, 19, 20, 19, 2, 21, 22, 0, 0, 0, 0, 0, 
+Instrument0List		db	1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, 2, 0, 0, 0, 0, 
+Instrument1List		db	0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 7, 8, 7, 8, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 
+Instrument2List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 11, 0, 11, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 0, 0, 0, 0, 0, 0, 0, 0, 
+Instrument3List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 0, 0, 0, 0, 0, 0, 0, 0, 
+Instrument4List		db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 18, 19, 20, 19, 2, 21, 22, 17, 18, 19, 20, 19, 2, 21, 22, 17, 18, 19, 20, 19, 2, 21, 22, 0, 0, 0, 0, 
 go4k_pattern_lists_end
 %ifdef USE_SECTIONS
 section .g4kmuc3 data align=1
@@ -544,8 +544,6 @@ GO4K_BEGIN_CMDDEF(Instrument3)
 	db GO4K_VCO_ID
 	db GO4K_VCO_ID
 	db GO4K_VCF_ID
-	db GO4K_VCO_ID
-	db GO4K_FOP_ID
 	db GO4K_FOP_ID
 	db GO4K_FOP_ID
 	db GO4K_FOP_ID
@@ -637,7 +635,7 @@ GO4K_BEGIN_PARAMDEF(Instrument2)
 	GO4K_OUT	GAIN(128), AUXSEND(0)
 GO4K_END_PARAMDEF
 GO4K_BEGIN_PARAMDEF(Instrument3)
-	GO4K_ENV	ATTAC(0),DECAY(72),SUSTAIN(0),RELEASE(72),GAIN(126)
+	GO4K_ENV	ATTAC(0),DECAY(72),SUSTAIN(0),RELEASE(72),GAIN(128)
 	GO4K_FST	AMOUNT(128),DEST(0*MAX_UNIT_SLOTS+2+FST_SET)
 	GO4K_ENV	ATTAC(0),DECAY(56),SUSTAIN(0),RELEASE(0),GAIN(128)
 	GO4K_FST	AMOUNT(108),DEST(6*MAX_UNIT_SLOTS+1+FST_SET)
@@ -645,10 +643,8 @@ GO4K_BEGIN_PARAMDEF(Instrument3)
 	GO4K_FOP	OP(FOP_POP)
 	GO4K_VCO	TRANSPOSE(32),DETUNE(64),PHASE(0),GATES(85),COLOR(128),SHAPE(32),GAIN(64),FLAGS(SINE)
 	GO4K_VCO	TRANSPOSE(64),DETUNE(64),PHASE(0),GATES(85),COLOR(128),SHAPE(80),GAIN(64),FLAGS(SINE)
-	GO4K_VCO	TRANSPOSE(64),DETUNE(64),PHASE(0),GATES(85),COLOR(64),SHAPE(10),GAIN(64),FLAGS(NOISE)
-	GO4K_VCF	FREQUENCY(96),RESONANCE(128),VCFTYPE(LOWPASS)
-	GO4K_VCO	TRANSPOSE(64),DETUNE(64),PHASE(0),GATES(85),COLOR(64),SHAPE(64),GAIN(16),FLAGS(NOISE)
-	GO4K_FOP	OP(FOP_ADDP)
+	GO4K_VCO	TRANSPOSE(64),DETUNE(64),PHASE(0),GATES(85),COLOR(64),SHAPE(64),GAIN(64),FLAGS(NOISE)
+	GO4K_VCF	FREQUENCY(104),RESONANCE(128),VCFTYPE(LOWPASS)
 	GO4K_FOP	OP(FOP_ADDP)
 	GO4K_FOP	OP(FOP_ADDP)
 	GO4K_FOP	OP(FOP_MULP)
