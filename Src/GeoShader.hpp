@@ -12,9 +12,13 @@ void LoadGeoShader()
 void RenderGeoShader()
 {
 	waveOutGetPosition(WaveOut, &MMTime, sizeof(MMTIME));
-	glUniform1f(0, (float)(MMTime.u.sample));
+
+	glUniform1f(0, (GLfloat)(MMTime.u.sample));
 
 	// Get BassDrum note (int = 46) on Instrument Channel 3 (Counting starts with 0!)
+	//
+	// General call: (&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (ChannelNumber << 1)])
+
 	constexpr int BassDrumChannel{ 2 };
-	glUniform1f(3, (float)((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (BassDrumChannel << 1)]));
+	glUniform1f(3, (GLfloat)((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (BassDrumChannel << 1)]));
 }
