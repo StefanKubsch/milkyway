@@ -4,9 +4,6 @@
 // Load 4klang-generated header file
 #include "4klang/4klang.h"
 
-SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
-HWAVEOUT WaveOut;
-
 WAVEFORMATEX WaveFMT
 {
 	#ifdef FLOAT_32BIT
@@ -22,8 +19,9 @@ WAVEFORMATEX WaveFMT
 	0											// extension not needed
 };
 
+SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
+HWAVEOUT WaveOut;
 WAVEHDR WaveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
-
 MMTIME MMTime{ TIME_SAMPLES, 0 };
 
 void InitSynth()

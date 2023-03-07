@@ -1,10 +1,10 @@
 const char* GeoSource =
 "#version 450 core\n"
 
-"uniform float t;\n"
-"uniform float w;\n"
-"uniform float h;\n"
-"uniform float bd;\n"
+"layout(location = 0) uniform float t;\n"
+"layout(location = 1) uniform float w;\n"
+"layout(location = 2) uniform float h;\n"
+"layout(location = 3) uniform float bd;\n"
 
 "out vec4 outColor;\n"
 
@@ -33,7 +33,7 @@ const char* GeoSource =
 		"c += float(50 - i) / (f2 + .005);\n"
 	"}\n"
 
-	"c = vec3(1. - 1. / (1. + c * (-.06 / 2500.)));\n"
+	"c = vec3(1. - 1. / (1. + c * (-.06 * .0004)));\n"
 	"c *= c;\n"
 
 	"outColor = vec4(c.r * 6., .0, bd * .007, 1.);\n"
