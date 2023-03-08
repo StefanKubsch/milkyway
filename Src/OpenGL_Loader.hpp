@@ -3,8 +3,6 @@
 
 #include <GL/gl.h>
 
-#pragma comment (lib, "opengl32.lib")
-
 // Definitions can be found here:
 // https://www.khronos.org/registry/OpenGL/api/GL/glext.h
 //

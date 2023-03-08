@@ -20,7 +20,7 @@ WAVEFORMATEX WaveFMT
 };
 
 SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
-HWAVEOUT WaveOut;
+HWAVEOUT WaveOut{};
 WAVEHDR WaveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
 MMTIME MMTime{ TIME_SAMPLES, 0 };
 

@@ -18,6 +18,7 @@ void RenderGeoShader()
 	// Get BassDrum note (int = 46) on Instrument Channel 3 (Counting starts with 0!)
 	//
 	// General call: (&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (ChannelNumber << 1)])
+	// or without bit-shifting: (&_4klang_note_buffer)[((MMTime.u.sample / 256) * 32) + (ChannelNumber * 2)])
 
 	constexpr int BassDrumChannel{ 2 };
 	glUniform1f(3, (GLfloat)((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (BassDrumChannel << 1)]));
