@@ -1,3 +1,5 @@
+#pragma once
+
 #include "mmsystem.h"
 #include "mmreg.h"
 

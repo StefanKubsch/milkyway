@@ -1,3 +1,5 @@
+#pragma once
+
 // some useful song defines for 4klang
 #define SAMPLE_RATE 44100
 #define BPM 120.000000

@@ -1,3 +1,5 @@
+#pragma once
+
 // For more information about how to load OpenGL functions, have a look here:
 // https://www.khronos.org/opengl/wiki/Load_OpenGL_Functions#Windows_2
 

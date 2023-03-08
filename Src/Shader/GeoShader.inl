@@ -1,3 +1,5 @@
+#pragma once
+
 const char* GeoSource =
 "#version 450 core\n"
 
