@@ -1,12 +1,10 @@
-#pragma once
-
 #include "mmsystem.h"
 #include "mmreg.h"
 
 // Load 4klang-generated header file
 #include "4klang/4klang.h"
 
-WAVEFORMATEX WaveFMT
+static WAVEFORMATEX WaveFMT
 {
 	#ifdef FLOAT_32BIT
 		WAVE_FORMAT_IEEE_FLOAT,
@@ -16,9 +14,9 @@ WAVEFORMATEX WaveFMT
 	2,											// channels
 	SAMPLE_RATE,								// samples per sec
 	SAMPLE_RATE * sizeof(SAMPLE_TYPE) * 2,		// bytes per sec
-	sizeof(SAMPLE_TYPE) * 2,					// block alignment;
+	sizeof(SAMPLE_TYPE) * 2,					// block alignment
 	sizeof(SAMPLE_TYPE) * 8,					// bits per sample
-	0											// extension not needed
+	0											// no extension
 };
 
 SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];

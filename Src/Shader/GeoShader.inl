@@ -1,9 +1,7 @@
-#pragma once
-
 // I´m using string literals ("R") here; so we don´t have to add "\n" at the end of each line and the code is much easier to read and maintain.
-// You also need a delimiter, it´s "END" here. But you can choose freely.
+// You also need a delimiter, it´s "D" here. But you can choose freely.
 
-const char* GeoSource = R"END(
+const char* GeoSource = R"D(
 	#version 450 core
 
 	layout(location = 0) uniform float t;
@@ -43,4 +41,4 @@ const char* GeoSource = R"END(
 
 		outColor = vec4(c.r * 6., .0, bd * .007, 1.);
 	}
-)END";
+)D";

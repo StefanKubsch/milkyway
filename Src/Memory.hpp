@@ -1,5 +1,3 @@
-#pragma once
-
 #include <intrin.h>
 
 extern "C"
