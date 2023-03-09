@@ -8,6 +8,7 @@ const char* GeoSource = R"D(
 	layout(location = 1) uniform float w;
 	layout(location = 2) uniform float h;
 	layout(location = 3) uniform float bd;
+	layout(location = 4) uniform float sd;
 
 	out vec4 outColor;
 
@@ -39,6 +40,6 @@ const char* GeoSource = R"D(
 		c = vec3(1. - 1. / (1. + c * (-.06 * .0004)));
 		c *= c;
 
-		outColor = vec4(c.r * 6., .0, bd * .007, 1.);
+		outColor = vec4(c.r * 6., .0, sd * .007, 1.);
 	}
 )D";

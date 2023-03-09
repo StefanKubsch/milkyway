@@ -16,11 +16,14 @@ void RenderGeoShader()
 
 	glUniform1f(0, static_cast<GLfloat>(MMTime.u.sample));
 
-	// Get BassDrum note (here: int = 46) on instrument Channel 3 (counting starts with 0!)
-	//
-	// general call: (&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (ChannelNumber << 1)])
-	// or without bit-shifting: (&_4klang_note_buffer)[((MMTime.u.sample / 256) * 32) + (ChannelNumber * 2)])
+	// Get notes from 4klang stream
+	// Channels starts with 0 and end with 15; so channel 0 equals MIDI channel 1!
+	// General call: (&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (ChannelNumber << 1)])
+	// Or without bitshifting: (&_4klang_note_buffer)[((MMTime.u.sample / 256) * 32) + (ChannelNumber * 2)])
 
-	constexpr int BassDrumChannel{ 2 };
-	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (BassDrumChannel << 1)]));
+	constexpr int BassDrumChannel{ 2 << 1 };
+	constexpr int SnareDrumChannel{ 3 << 1 };
+
+	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + BassDrumChannel]));
+	glUniform1f(4, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + SnareDrumChannel]));
 }
