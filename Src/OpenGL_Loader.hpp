@@ -38,6 +38,4 @@ void InitOpenGL()
 	#define OG(Return, Name, ...) Name = reinterpret_cast<Name##proc *>(wglGetProcAddress(#Name));
 		OGL
 	#undef OG
-
-	FreeLibrary(OGL32);
 }

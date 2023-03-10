@@ -23,11 +23,11 @@ void InitScreen()
 	wglMakeCurrent(WindowHandle, wglCreateContext(WindowHandle));
 }
 
-void DeleteOpenGLContext()
+void DestroyScreen()
 {
 	wglMakeCurrent(nullptr, nullptr);
-	ReleaseDC(MainWindow, WindowHandle);
 	wglDeleteContext(wglGetCurrentContext());
+	ReleaseDC(MainWindow, WindowHandle);
 }
 
 void ClearScreen()

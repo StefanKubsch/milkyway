@@ -3,7 +3,7 @@
 
 void LoadGeoShader()
 {
-	const GLuint Program{ glCreateShaderProgramv(GL_FRAGMENT_SHADER, 1, &GeoSource) };
+	const GLuint Program{ glCreateShaderProgramv(GL_FRAGMENT_SHADER, 1, &GeoShaderSource) };
 	glUseProgram(Program);
 
 	glUniform1f(1, static_cast<GLfloat>(ScreenWidth));
@@ -21,9 +21,13 @@ void RenderGeoShader()
 	// General call: (&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + (ChannelNumber << 1)])
 	// Or without bitshifting: (&_4klang_note_buffer)[((MMTime.u.sample / 256) * 32) + (ChannelNumber * 2)])
 
-	constexpr int BassDrumChannel{ 2 << 1 };
-	constexpr int SnareDrumChannel{ 3 << 1 };
+	constexpr int BassDrumChannel{ 2 * 2 };
+	constexpr int SnareDrumChannel{ 3 * 2 };
 
 	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + BassDrumChannel]));
 	glUniform1f(4, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + SnareDrumChannel]));
+
+	// Bring everything to screen
+	glRects(-1, -1, 1, 1);
+	SwapBuffers(WindowHandle);
 }

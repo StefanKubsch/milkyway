@@ -4,7 +4,7 @@
 // Load 4klang-generated header file
 #include "4klang/4klang.h"
 
-static WAVEFORMATEX WaveFMT
+WAVEFORMATEX WaveFMT
 {
 	#ifdef FLOAT_32BIT
 		WAVE_FORMAT_IEEE_FLOAT,

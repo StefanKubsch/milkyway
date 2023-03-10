@@ -41,13 +41,9 @@ __declspec(naked) void winmain()
 			// Here starts our demo/intro code
 			RenderGeoShader();
 			// Here ends our demo/intro code
-
-			// Bring everything to screen
-			glRects(-1, -1, 1, 1);
-			SwapBuffers(WindowHandle);
 		} while (!GetAsyncKeyState(VK_ESCAPE) && MMTime.u.sample < MAX_SAMPLES);
 	}
 
-	DeleteOpenGLContext();
+	DestroyScreen();
 	ExitProcess(0);
 }

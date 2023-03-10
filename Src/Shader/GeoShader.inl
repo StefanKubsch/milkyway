@@ -1,7 +1,7 @@
 // I´m using string literals ("R") here; so we don´t have to add "\n" at the end of each line and the code is much easier to read and maintain.
 // You also need a delimiter, it´s "D" here. But you can choose freely.
 
-const char* GeoSource = R"D(
+const char* GeoShaderSource = R"D(
 	#version 450 core
 
 	layout(location = 0) uniform float t;
