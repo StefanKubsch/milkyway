@@ -21,7 +21,7 @@ WAVEFORMATEX WaveFMT
 
 SAMPLE_TYPE AudioBuffer[MAX_SAMPLES * 2];
 HWAVEOUT WaveOut{};
-WAVEHDR WaveHDR{ (LPSTR)AudioBuffer, MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, 0, 0, 0, 0, 0 };
+WAVEHDR WaveHDR{ reinterpret_cast<LPSTR>(AudioBuffer), MAX_SAMPLES * sizeof(SAMPLE_TYPE) * 2, 0, (DWORD_PTR)NULL, 0, 0, nullptr, (DWORD_PTR)NULL };
 MMTIME MMTime{ TIME_SAMPLES, 0 };
 
 void InitSynth()

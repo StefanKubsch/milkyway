@@ -36,12 +36,12 @@ __declspec(naked) void winmain()
 		do
 		{
 			// Do some minimal Windows message handling, otherwise Windows will kick your application after some seconds
-			PeekMessage(0, 0, 0, 0, PM_REMOVE);
+			PeekMessage(nullptr, nullptr, 0, 0, PM_REMOVE);
 
 			// Here starts our demo/intro code
 			RenderGeoShader();
 			// Here ends our demo/intro code
-		} while (!GetAsyncKeyState(VK_ESCAPE) && MMTime.u.sample < MAX_SAMPLES);
+		} while ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) == 0 && MMTime.u.sample < MAX_SAMPLES);
 	}
 
 	DestroyScreen();

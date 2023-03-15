@@ -16,7 +16,7 @@ void InitScreen()
 	// Create OpenGL context
 	// https://www.khronos.org/opengl/wiki/Creating_an_OpenGL_Context_(WGL)
 
-	MainWindow = CreateWindow((LPCSTR)0xC018, 0, WS_POPUP | WS_VISIBLE | WS_MAXIMIZE, 0, 0, 0, 0, 0, 0, 0, 0);
+	MainWindow = CreateWindow(reinterpret_cast<LPCSTR>(0xC018), 0, WS_POPUP | WS_VISIBLE | WS_MAXIMIZE, 0, 0, 0, 0, 0, 0, 0, 0);
 	WindowHandle = GetDC(MainWindow);
 
 	SetPixelFormat(WindowHandle, ChoosePixelFormat(WindowHandle, &PFD), &PFD);
