@@ -21,8 +21,10 @@ void RenderFractalShader()
 	// Or without bitshifting: (&_4klang_note_buffer)[((MMTime.u.sample / 256) * 32) + (ChannelNumber * 2)])
 
 	constexpr int SnareDrumChannel{ 3 * 2 };
+	constexpr int BassDrumChannel{ 2 * 2 };
 
 	glUniform1f(2, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + SnareDrumChannel]));
+	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + BassDrumChannel]));
 
 	// Bring everything to screen
 	glRects(-1, -1, 1, 1);
