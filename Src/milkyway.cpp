@@ -14,7 +14,7 @@
 #include "4klang_Synth.hpp"
 
 // Include content/demo/intro headers here
-#include "GeoShader.hpp"
+#include "ApollonianFractal.hpp"
 
 // Create a custom "naked" entry point, so we don´t include CRT (C Runtime).
 // Doing this, we create a "bare metal" binary file, which is not linked to any standard libraries. Neither static, nor dynamic!
@@ -29,7 +29,7 @@ __declspec(naked) void winmain()
 		InitScreen();
 		InitOpenGL();
 		ClearScreen();
-		LoadGeoShader();
+		LoadFractalShader();
 		InitSynth();
 
 		// Main loop
@@ -39,7 +39,7 @@ __declspec(naked) void winmain()
 			PeekMessage(nullptr, nullptr, 0, 0, PM_REMOVE);
 
 			// Here starts our demo/intro code
-			RenderGeoShader();
+			RenderFractalShader();
 			// Here ends our demo/intro code
 		} while ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) == 0 && MMTime.u.sample < MAX_SAMPLES);
 	}

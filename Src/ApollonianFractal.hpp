@@ -1,16 +1,16 @@
 // Include our GLSL code here
-#include "./Shader/GeoShader.inl"
+#include "./Shader/ApollonianFractal.inl"
 
-void LoadGeoShader()
+void LoadFractalShader()
 {
-	const GLuint Program{ glCreateShaderProgramv(GL_FRAGMENT_SHADER, 1, &GeoShaderSource) };
+	const GLuint Program{ glCreateShaderProgramv(GL_FRAGMENT_SHADER, 1, &ApollonianFractalSource) };
 	glUseProgram(Program);
 
 	glUniform1f(1, static_cast<GLfloat>(ScreenWidth));
 	glUniform1f(2, static_cast<GLfloat>(ScreenHeight));
 }
 
-void RenderGeoShader()
+void RenderFractalShader()
 {
 	waveOutGetPosition(WaveOut, &MMTime, sizeof(MMTIME));
 

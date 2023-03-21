@@ -29,7 +29,7 @@
     <ClInclude Include="Src\Memory.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GeoShader.hpp">
+    <ClInclude Include="Src\ApollonianFractal.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Src\4klang_Synth.hpp">
@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Src\Shader\GeoShader.inl">
+    <None Include="Src\Shader\ApollonianFractal.inl">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>
