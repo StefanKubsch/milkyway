@@ -5,19 +5,17 @@ const char* ApollonianFractalSource = R"D(
 	#version 450 core
 
 	layout(location = 0) uniform float t;
-	layout(location = 1) uniform float w;
-	layout(location = 2) uniform float h;
-	layout(location = 3) uniform float bd;
-	layout(location = 4) uniform float sd;
+	layout(location = 1) uniform float h;
+	layout(location = 2) uniform float sd;
 
 	out vec4 outColor;
 
-    float Sphere(vec3 p)
+    float Sphere(vec3 p, int f)
     {
-        p.z += t * .00003;
+        p.z += t * .00001;
         float s = 1.;
 
-        for (int i = 0; i < 4; ++i)
+        for (int i = 0; i < f; ++i)
         {
             float k = 1.7 / dot(p = mod(p - 1., 2.) - 1., p);
             p *= k;
@@ -27,12 +25,10 @@ const char* ApollonianFractalSource = R"D(
         return length(p) / s;
     }
 
-
     void main()
     {
-        float ti = t * .00001;
-        vec2 res = vec2(w, h);
-        vec3 uv = vec3(gl_FragCoord.xy / res.y - .5, 1.) * .25;
+        float ti = t * .000005;
+        vec3 uv = vec3(gl_FragCoord.xy / h - .5, 1.) * .25;
         vec3 r = vec3(1., 1., ti);
         vec2 m = sin(vec2(.0, 1.5) + ti);
 
@@ -41,12 +37,19 @@ const char* ApollonianFractalSource = R"D(
 
         outColor -= outColor;
 
-        for (outColor.w; outColor.w < 40.; ++outColor.w)
+        int f = 4;
+
+        if (sd != .0)
         {
-            r += Sphere(r) * uv;
+            f = 7;
         }
 
-        outColor += Sphere(r) * Sphere(r - uv) * 40.;
+        for (outColor.w; outColor.w < 40.; ++outColor.w)
+        {
+            r += Sphere(r, f) * uv;
+        }
+
+        outColor += Sphere(r, f) * Sphere(r - uv, f) * 40.;
         outColor.bg *= 8. * uv.xz;
     }
 )D";

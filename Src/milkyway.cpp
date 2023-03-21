@@ -4,8 +4,8 @@
 #include <Windows.h>
 
 // Screensize
-#define ScreenWidth		1280
-#define ScreenHeight	720
+#define ScreenWidth		1920
+#define ScreenHeight	1080
 
 // Include framework specific headers
 #include "Memory.hpp"
