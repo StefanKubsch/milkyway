@@ -5,9 +5,10 @@ const char* ApollonianFractalSource = R"D(
 	#version 450 core
 
 	layout(location = 0) uniform float t;
-	layout(location = 1) uniform float h;
-	layout(location = 2) uniform float sd;
-	layout(location = 3) uniform float bd;
+	layout(location = 1) uniform float w;
+	layout(location = 2) uniform float h;
+	layout(location = 3) uniform float sd;
+	layout(location = 4) uniform float bd;
 
 	out vec4 outColor;
 
@@ -29,7 +30,8 @@ const char* ApollonianFractalSource = R"D(
     void main()
     {
         float ti = t * .000005;
-        vec3 uv = vec3(gl_FragCoord.xy / h - .5, 1.) * .25;
+        vec2 res = vec2(w, h);
+        vec3 uv = vec3(gl_FragCoord.xy / res.y - .5, 1.) * .25;
         vec3 r = vec3(1., 1., ti);
         vec2 m = sin(vec2(.0, 1.5) + ti);
 
@@ -42,7 +44,7 @@ const char* ApollonianFractalSource = R"D(
 
         if (sd != .0)
         {
-            f = 7;
+            f = 8;
         }
 
         for (outColor.w; outColor.w < 40.; ++outColor.w)
