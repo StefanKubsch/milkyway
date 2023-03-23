@@ -1,16 +1,15 @@
 // Include our GLSL code here
 #include "./Shader/ApollonianFractal.inl"
 
-void LoadFractalShader()
+void LoadShader()
 {
 	const GLuint Program{ glCreateShaderProgramv(GL_FRAGMENT_SHADER, 1, &ApollonianFractalSource) };
 	glUseProgram(Program);
 
-	glUniform1f(1, static_cast<GLfloat>(ScreenWidth));
-	glUniform1f(2, static_cast<GLfloat>(ScreenHeight));
+	glUniform1f(1, static_cast<GLfloat>(ScreenHeight));
 }
 
-void RenderFractalShader()
+void RenderShader()
 {
 	waveOutGetPosition(WaveOut, &MMTime, sizeof(MMTIME));
 
@@ -24,8 +23,8 @@ void RenderFractalShader()
 	constexpr int SnareDrumChannel{ 3 * 2 };
 	constexpr int BassDrumChannel{ 2 * 2 };
 
-	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + SnareDrumChannel]));
-	glUniform1f(4, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + BassDrumChannel]));
+	glUniform1f(2, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + SnareDrumChannel]));
+	glUniform1f(3, static_cast<GLfloat>((&_4klang_note_buffer)[((MMTime.u.sample >> 8) << 5) + BassDrumChannel]));
 
 	// Bring everything to screen
 	glRects(-1, -1, 1, 1);

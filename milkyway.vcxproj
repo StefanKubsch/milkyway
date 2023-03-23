@@ -24,7 +24,7 @@
   <ItemGroup>
     <ClInclude Include="Src\4klang\4klang.h" />
     <ClInclude Include="Src\4klang_Synth.hpp" />
-    <ClInclude Include="Src\ApollonianFractal.hpp" />
+    <ClInclude Include="Src\Shader.hpp" />
     <ClInclude Include="Src\Memory.hpp" />
     <ClInclude Include="Src\OpenGL_Loader.hpp" />
     <ClInclude Include="Src\OpenGL_Screen.hpp" />

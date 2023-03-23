@@ -2,57 +2,22 @@
 // You also need a delimiter, it´s "D" here. But you can choose freely.
 
 const char* ApollonianFractalSource = R"D(
-	#version 450 core
-
-	layout(location = 0) uniform float t;
-	layout(location = 1) uniform float w;
-	layout(location = 2) uniform float h;
-	layout(location = 3) uniform float sd;
-	layout(location = 4) uniform float bd;
-
-	out vec4 outColor;
-
-    float Sphere(vec3 p, int f)
-    {
-        p.z += t * .00001;
-        float s = 1.;
-
-        for (int i = 0; i < f; ++i)
-        {
-            float k = 1.7 / dot(p = mod(p - 1., 2.) - 1., p);
-            p *= k;
-            s *= k;
-        }
-
-        return length(p) / s;
-    }
-
-    void main()
-    {
-        float ti = t * .000005;
-        vec2 res = vec2(w, h);
-        vec3 uv = vec3(gl_FragCoord.xy / res.y - .5, 1.) * .25;
-        vec3 r = vec3(1., 1., ti);
-        vec2 m = sin(vec2(.0, 1.5) + ti);
-
-        uv.xy = mat2(m.y, -m.x, m) * uv.xy;
-        uv.xz = mat2(m.y, -m.x, m) * uv.xz;
-
-        outColor = vec4(.0, .0, .0, .0);
-
-        int f = 4;
-
-        if (sd != .0)
-        {
-            f = 8;
-        }
-
-        for (outColor.a; outColor.a < 40.; ++outColor.a)
-        {
-            r += Sphere(r, f) * uv;
-        }
-
-        outColor += Sphere(r, f) * Sphere(r - uv, f) * (40. + bd);
-        outColor.bg *= 8. * uv.xz;
-    }
+#version 450
+layout(location=0) uniform float t;
+layout(location=1) uniform float h;
+layout(location=2) uniform float s;
+layout(location=3) uniform float b;
+out vec4 o;
+float sp(vec3 p,int f){p.z+=t*.00001;float s=1;for(int i=0;i<f;++i){float k=1.7/dot(p=mod(p-1,2)-1,p);p*=k;s*=k;}return length(p)/s;}
+void main(){
+vec3 u=vec3(gl_FragCoord.xy/h-.5,1)*.25,r=vec3(1,1,t*.000005);
+vec2 m=sin(vec2(0,1.5)+t*.000005);
+u.xy=mat2(m.y,-m.x,m)*u.xy;
+u.xz=mat2(m.y,-m.x,m)*u.xz;
+o=vec4(0,0,0,0);
+int f=4;
+if(s!=0)f=8;
+for(o.a;o.a<40;++o.a)r+=sp(r,f)*u;
+o+=sp(r,f)*sp(r-u,f)*(40+b);
+o.bg*=8*u.xz;}
 )D";
