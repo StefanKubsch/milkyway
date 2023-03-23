@@ -40,4 +40,4 @@ Further plans:
 
 Feel free to use the code!
 
-Why the name "milkyway"? In the 1990s, there was a german TV commercial for a candy bar called "MilkyWay. The tagline was "Der ist so leicht, der schwimmt sogar in Milch". Translated to english it is "It's so light, it even floats in milk". I find the name quite appropriate for a very minimal framework.
+Why the name "milkyway"? In the 1990s, there was a german TV commercial for a candy bar called "MilkyWay". The tagline was "Der ist so leicht, der schwimmt sogar in Milch". Translated to english it is "It's so light, it even floats in milk". I find the name quite appropriate for a very minimal framework.
