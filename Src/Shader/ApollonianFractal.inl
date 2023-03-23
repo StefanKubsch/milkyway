@@ -38,7 +38,7 @@ const char* ApollonianFractalSource = R"D(
         uv.xy = mat2(m.y, -m.x, m) * uv.xy;
         uv.xz = mat2(m.y, -m.x, m) * uv.xz;
 
-        outColor -= outColor;
+        outColor = vec4(.0, .0, .0, .0);
 
         int f = 4;
 
@@ -47,7 +47,7 @@ const char* ApollonianFractalSource = R"D(
             f = 8;
         }
 
-        for (outColor.w; outColor.w < 40.; ++outColor.w)
+        for (outColor.a; outColor.a < 40.; ++outColor.a)
         {
             r += Sphere(r, f) * uv;
         }
