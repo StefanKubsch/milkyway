@@ -24,7 +24,7 @@ __declspec(naked) void winmain()
 	__asm enter 0x10, 0;
 	__asm pushad;
 
-	// Create an extra scope so we can use local vars, since "naked" functions don´t allow them
+	// Create an extra scope {} so we can use local vars, since "naked" functions don´t allow them
 	{
 		InitScreen();
 		InitOpenGL();

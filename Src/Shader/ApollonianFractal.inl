@@ -18,5 +18,8 @@ int f=4;
 if(s!=0)f=8;
 for(o.a;o.a<40;++o.a)r+=sp(r,f)*u;
 o+=sp(r,f)*sp(r-u,f)*(40+b);
-o.bg*=8*u.xz;}
+o.bg*=8*u.xz;
+float cf=t*.0000007;
+if(cf>=1)cf=1;
+o=vec4(mix(vec3(0,0,0),o.rgb,cf),o.a);}
 )D";
