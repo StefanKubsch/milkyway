@@ -32,7 +32,7 @@ void DestroyScreen()
 
 void ClearScreen()
 {
-	glColor4f(0.0F, 0.0F, 0.0F, 0.0F);
+	glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	glClear(GL_COLOR_BUFFER_BIT);
 	SwapBuffers(WindowHandle);
 }

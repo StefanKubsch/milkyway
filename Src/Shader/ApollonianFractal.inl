@@ -19,7 +19,7 @@ if(s!=0)f=8;
 for(o.a;o.a<40;++o.a)r+=sp(r,f)*u;
 o+=sp(r,f)*sp(r-u,f)*(40+b);
 o.bg*=8*u.xz;
-float c=t*.0000008;
+float c=t*.000001;
 if(c>1)c=1;
-o=mix(vec4(0),o.rgba,c);}
+o=mix(vec4(1),o.rgba,c);}
 )D";
