@@ -9,9 +9,6 @@
 // Please take care: Only things used are defined here - of course, there are much more possible definitions!
 
 #define GL_FRAGMENT_SHADER	0x8B30
-#define GL_VERTEX_SHADER	0x8B31
-
-using GLchar = char;
 
 // And all those nice function definitions can be found here:
 // https://www.khronos.org/registry/OpenGL-Refpages/gl4/
